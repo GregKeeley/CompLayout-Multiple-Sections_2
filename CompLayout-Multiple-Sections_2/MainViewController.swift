@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Int>
     
+    var dataSource: DataSource!
+    
     enum Section: Int, CaseIterable {
         case grid
         case single
@@ -30,6 +32,15 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
+        configureCollectionView()
+        configureDataSource()
+    }
+    private func configureCollectionView() {
+        // overwrite the default layout from
+        // flow layout to compositional layout
+        collectionView.collectionViewLayout = createLayout()
+        collectionView.backgroundColor = .systemTeal
+        collectionView.register(LabelCell.self, forCellWithReuseIdentifier: "labelCell")
     }
     private func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
@@ -46,6 +57,26 @@ class MainViewController: UIViewController {
             return section
         }
         return layout
+    }
+    private func configureDataSource() {
+        dataSource = DataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "labelCell", for: indexPath) as? LabelCell else {
+                fatalError("Could not dequeue label cell")
+                
+            }
+            cell.textLabel.text = "\(item)"
+            if indexPath.section == 0 {
+                cell.backgroundColor = .systemOrange
+            } else {
+                cell.backgroundColor = .systemBlue
+            }
+            return cell
+        })
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
+        snapshot.appendSections([.grid, .single])
+        snapshot.appendItems(Array(1...12), toSection: .grid)
+        snapshot.appendItems(Array(13...20), toSection: .single)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
