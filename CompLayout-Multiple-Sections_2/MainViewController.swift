@@ -12,6 +12,21 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, Int>
+    
+    enum Section: Int, CaseIterable {
+        case grid
+        case single
+        var columnCount: Int {
+            switch self {
+            case .grid:
+                return 4
+            case .single:
+                return 1
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
