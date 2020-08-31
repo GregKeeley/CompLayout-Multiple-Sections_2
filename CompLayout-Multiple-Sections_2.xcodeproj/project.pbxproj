@@ -13,6 +13,7 @@
 		886AB9EA24FA9C5F00F79F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886AB9E824FA9C5F00F79F47 /* Main.storyboard */; };
 		886AB9EC24FA9C6100F79F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886AB9EB24FA9C6100F79F47 /* Assets.xcassets */; };
 		886AB9EF24FA9C6100F79F47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886AB9ED24FA9C6100F79F47 /* LaunchScreen.storyboard */; };
+		886AB9F724FC960300F79F47 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886AB9F624FC960300F79F47 /* LabelCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		886AB9EB24FA9C6100F79F47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		886AB9EE24FA9C6100F79F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		886AB9F024FA9C6100F79F47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		886AB9F624FC960300F79F47 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				886AB9E424FA9C5F00F79F47 /* SceneDelegate.swift */,
 				886AB9E624FA9C5F00F79F47 /* MainViewController.swift */,
 				886AB9E824FA9C5F00F79F47 /* Main.storyboard */,
+				886AB9F624FC960300F79F47 /* LabelCell.swift */,
 				886AB9EB24FA9C6100F79F47 /* Assets.xcassets */,
 				886AB9ED24FA9C6100F79F47 /* LaunchScreen.storyboard */,
 				886AB9F024FA9C6100F79F47 /* Info.plist */,
@@ -140,6 +143,7 @@
 			files = (
 				886AB9E724FA9C5F00F79F47 /* MainViewController.swift in Sources */,
 				886AB9E324FA9C5F00F79F47 /* AppDelegate.swift in Sources */,
+				886AB9F724FC960300F79F47 /* LabelCell.swift in Sources */,
 				886AB9E524FA9C5F00F79F47 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
