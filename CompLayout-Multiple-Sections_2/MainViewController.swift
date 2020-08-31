@@ -31,5 +31,21 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .red
     }
+    private func createLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            guard let sectionType = Section(rawValue: sectionIndex) else {
+                return nil
+            }
+            let columns = sectionType.columnCount
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupHeight = columns == 1 ? NSCollectionLayoutDimension.absolute(200) : NSCollectionLayoutDimension.fractionalHeight(0.25)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: groupHeight)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: columns)
+            let section = NSCollectionLayoutSection(group: group)
+            return section
+        }
+        return layout
+    }
 }
 
